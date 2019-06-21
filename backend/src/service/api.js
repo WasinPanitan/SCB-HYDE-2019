@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const apiKey = 'l710281fc525264da39562f271d3a0699a';
 const apiSecret = '1316b88e6ad548abaaba74cf6d8ae800';
 
