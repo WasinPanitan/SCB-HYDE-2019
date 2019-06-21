@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const apiKey = 'l710281fc525264da39562f271d3a0699a';
 const apiSecret = '1316b88e6ad548abaaba74cf6d8ae800';
+const resourceOwnerId = '26f466d7-5149-4f59-bf99-cfe7d29c90bd';
 
 const URL = {
   OAUTH_AUTH: '',
@@ -28,7 +29,7 @@ const fetchToken = async (header, data) => {
       body: JSON.stringify(body),
       headers: {
         ...DEFAULT_HEADER,
-        resourceOwnerId: '26f466d7-5149-4f59-bf99-cfe7d29c90bd',
+        resourceOwnerId,
         requestUId: '85230887-e643-4fa4-84b2-4e56709c4ac4',
         ...header,
       },
@@ -37,27 +38,22 @@ const fetchToken = async (header, data) => {
   return response.json();
 };
 
-const fetchProfile = async () => {
-  // const {
-  //   token = 'c9dde97a-4e94-4622-bb8a-ef89332c6b6a',
-  //   requestUId = '99100361-23d2-433d-8c21-4b6469918713',
-  //   resourceOwnerId = '26f466d7-5149-4f59-bf99-cfe7d29c90bd',
-  // } = header;
+const fetchProfile = async (header) => {
   try {
     const response = await axios(
-      URL.OAUTH_TOKEN,
+      URL.CS_PROFILE,
       {
         method: 'GET',
         headers: {
-          authorization: 'Bearer c9dde97a-4e94-4622-bb8a-ef89332c6b6a',
+          ...DEFAULT_HEADER,
+          authorization: header.authorization, // Bearer token
           requestUId: '99100361-23d2-433d-8c21-4b6469918713',
-          resourceOwnerId: '26f466d7-5149-4f59-bf99-cfe7d29c90bd',
+          resourceOwnerId,
         },
       }
     );
-    return response.json();
+    return response.data;
   } catch (err) {
-    console.log(err);
     return null;
   }
 };

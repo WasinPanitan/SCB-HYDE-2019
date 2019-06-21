@@ -1,6 +1,6 @@
 import api from './api';
 
-const userProfile = () => api.fetchProfile();
+const userProfile = (header) => api.fetchProfile(header);
 
 export default {
   userProfile,
