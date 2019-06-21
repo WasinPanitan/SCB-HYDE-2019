@@ -8,4 +8,4 @@ services:
     volumes:
       - './backend:/usr/src/app'
     ports:
-      - '6009:8080'
+      - '6009:6009'
