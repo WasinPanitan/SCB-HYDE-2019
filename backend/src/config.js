@@ -5,7 +5,7 @@ const { env } = process;
 
 const config = {
   bodyLimit: '100kb',
-  port: env.PORT || 8080,
+  port: env.PORT || 6009,
 };
 
 export default config;
