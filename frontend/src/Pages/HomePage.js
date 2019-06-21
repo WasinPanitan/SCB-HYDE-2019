@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Button } from 'antd';
 import api from '../Services/api';
 
+import './HomePage.css';
+
 class HomePage extends Component {
   constructor(props) {
     super(props);
