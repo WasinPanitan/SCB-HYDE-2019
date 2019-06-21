@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const apiKey = 'l710281fc525264da39562f271d3a0699a';
 const apiSecret = '1316b88e6ad548abaaba74cf6d8ae800';
 
@@ -17,9 +19,9 @@ const fetchToken = async (header, data) => {
   const body = {
     applicationKey: apiKey,
     applicationSecret: apiSecret,
-    authCode: data.authCode,
+    authCode: '',
   };
-  const response = await fetch(
+  const response = await axios(
     URL.OAUTH_TOKEN,
     {
       method: 'POST',
@@ -35,24 +37,29 @@ const fetchToken = async (header, data) => {
   return response.json();
 };
 
-const fetchProfile = async (header) => {
-  const {
-    token = 'c9dde97a-4e94-4622-bb8a-ef89332c6b6a',
-    requestUId = '99100361-23d2-433d-8c21-4b6469918713',
-    resourceOwnerId = '26f466d7-5149-4f59-bf99-cfe7d29c90bd',
-  } = header;
-  const response = await fetch(
-    URL.OAUTH_TOKEN,
-    {
-      method: 'GET',
-      headers: {
-        authorization: `Bearer ${token}`,
-        resourceOwnerId,
-        requestUId,
-      },
-    }
-  );
-  return response.json();
+const fetchProfile = async () => {
+  // const {
+  //   token = 'c9dde97a-4e94-4622-bb8a-ef89332c6b6a',
+  //   requestUId = '99100361-23d2-433d-8c21-4b6469918713',
+  //   resourceOwnerId = '26f466d7-5149-4f59-bf99-cfe7d29c90bd',
+  // } = header;
+  try {
+    const response = await axios(
+      URL.OAUTH_TOKEN,
+      {
+        method: 'GET',
+        headers: {
+          authorization: 'Bearer c9dde97a-4e94-4622-bb8a-ef89332c6b6a',
+          requestUId: '99100361-23d2-433d-8c21-4b6469918713',
+          resourceOwnerId: '26f466d7-5149-4f59-bf99-cfe7d29c90bd',
+        },
+      }
+    );
+    return response.json();
+  } catch (err) {
+    console.log(err);
+    return null;
+  }
 };
 
 export default {

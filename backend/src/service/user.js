@@ -1,8 +1,6 @@
 import api from './api';
 
-const userProfile = async () => {
-  return api.fetchUserProfile();
-};
+const userProfile = () => api.fetchProfile();
 
 export default {
   userProfile,
