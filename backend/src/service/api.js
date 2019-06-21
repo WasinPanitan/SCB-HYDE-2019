@@ -16,26 +16,29 @@ const DEFAULT_HEADER = {
   'accept-language': 'EN',
 };
 
-const fetchToken = async (header, data) => {
-  const body = {
-    applicationKey: apiKey,
-    applicationSecret: apiSecret,
-    authCode: '',
-  };
-  const response = await axios(
-    URL.OAUTH_TOKEN,
-    {
-      method: 'POST',
-      body: JSON.stringify(body),
-      headers: {
-        ...DEFAULT_HEADER,
-        resourceOwnerId,
-        requestUId: '85230887-e643-4fa4-84b2-4e56709c4ac4',
-        ...header,
-      },
-    }
-  );
-  return response.json();
+const fetchToken = async () => {
+  try {
+    const response = await axios(
+      URL.OAUTH_TOKEN,
+      {
+        method: 'POST',
+        data: {
+          applicationKey: apiKey,
+          applicationSecret: apiSecret,
+          authCode: '',
+        },
+        headers: {
+          ...DEFAULT_HEADER,
+          resourceOwnerId,
+          requestUId: '85230887-e643-4fa4-84b2-4e56709c4ac4',
+        },
+      }
+    );
+    return response.data;
+  } catch (err) {
+    console.log(err);
+    return null;
+  }
 };
 
 const fetchProfile = async (header) => {
