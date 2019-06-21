@@ -21,7 +21,7 @@ const fetchToken = async (header, data) => {
     applicationSecret : apiSecret,
     authCode: data.authCode,
   }
-  return fetch.get(URL.OAUTH_TOKEN, {
+  const response = await fetch(URL.OAUTH_TOKEN, {
       method: 'POST',
       body: JSON.stringify(body),
       headers:{
@@ -32,6 +32,7 @@ const fetchToken = async (header, data) => {
       },
     }
   )
+  return response.json();
 }
 
 const fetchProfile = async (header) => {
@@ -40,9 +41,8 @@ const fetchProfile = async (header) => {
     requestUId = '99100361-23d2-433d-8c21-4b6469918713',
     resourceOwnerId = '26f466d7-5149-4f59-bf99-cfe7d29c90bd',
   } = header;
-  return fetch.get(URL.OAUTH_TOKEN, {
-      method: 'POST',
-      body: JSON.stringify(body),
+  const response = await fetch(URL.OAUTH_TOKEN, {
+      method: 'GET',
       headers:{
         authorization: `Bearer ${token}`,
         resourceOwnerId,
@@ -50,6 +50,7 @@ const fetchProfile = async (header) => {
       },
     }
   );
+  return response.json();
 }
 
 export default {
