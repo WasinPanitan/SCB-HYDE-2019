@@ -11,4 +11,8 @@ router.get('/token', async (req, res, next) => {
   res.send(await service.user.token(req.headers));
 });
 
+router.post('/calculate-loan', async (req, res, next) => {
+  res.send(await service.user.calculateLoan(req.headers, req.body));
+});
+
 export default router;
