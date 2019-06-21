@@ -1,25 +1,52 @@
 import React, { Component } from 'react';
-import { Button } from 'antd';
+import { get, map, pick } from 'lodash';
+import { Button, Input, Form } from 'antd';
 import api from '../Services/api';
-
 import './HomePage.css';
 
 class HomePage extends Component {
   constructor(props) {
     super(props);
-    this.state = { data: '' };
+    this.state = { data: {} };
   }
 
   async componentDidMount() {
-    this.setState({ data: await api.fetchProfile() });
+    const result = await api.fetchProfile();
+    this.setState({ data: get(result, ['data', 'profile'], {}) });
   }
 
+  renderFormItem = (label, value) => (
+    <Form.Item key={label} label={label}>
+      <Input value={value}/>
+    </Form.Item>
+  );
+
   render () {
-    return (<div className="App">
-      <h1>Page</h1>
-      <div>{JSON.stringify(this.state.data, null, 2)}</div>
-      <Button type="primary" onClick={() => console.log('bobo')}>Test</Button>
-    </div>);
+    const rows = pick(this.state.data, [
+      'citizenID',
+      'thaiFirstName',
+      'thaiLastName',
+      'engFirstName',
+      'engLastName',
+      'birthDate',
+      'genderCode',
+      'mobile',
+      'email',
+    ]);
+    const formItemLayout = {
+      labelCol: { span: 6 },
+      wrapperCol: { span: 18 },
+      labelAlign: 'left',
+    };
+    return (
+      <div className="App">
+        <h1>Profile</h1>
+        <Form {...formItemLayout} onClick={() => {}}>
+          {map(rows, (value, key) => this.renderFormItem(key, value))}
+          <Button type="primary" htmlType="submit">Submit</Button>
+        </Form>
+      </div>
+    );
   }
 }
 
