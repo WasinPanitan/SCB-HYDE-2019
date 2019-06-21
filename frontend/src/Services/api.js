@@ -1,5 +1,16 @@
 import axios from 'axios';
 
+const fetchAccessToken = async () => {
+  const response = await axios(
+    'http://localhost:6009/api/user/token',
+    {
+      method: 'GET'
+    }
+  );
+  console.log('bearerToken', response.data);
+  localStorage.setItem('bearerToken', response.data);
+}
+
 const fetchProfile = async (header) => {
   const response = await axios(
     'http://localhost:6009/api/user/user-profile',
@@ -21,4 +32,5 @@ const fetchProfile = async (header) => {
 
 export default {
   fetchProfile,
+  fetchAccessToken,
 };
