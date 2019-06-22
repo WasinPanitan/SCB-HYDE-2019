@@ -12,7 +12,7 @@ class StepsBar extends React.Component {
     console.log('this.props. step', this.props.current);
     return (
       <div>
-        <Steps current={this.props.current}>
+        <Steps progressDot current={this.props.current}>
           <Step title="กรอกข้อมูล">1</Step>
           <Step title="เปรียบเทียบสินเชื่อที่คุณต้องการ">2</Step>
           <Step title="ส่งคำขอสินเชื่อ">3</Step>
