@@ -37,7 +37,7 @@ const fetchLoan = async (header) => {
       'http://localhost:6009/api/user/fetch-loan/ENET19062201002',
       {
         method: 'GET',
-        hedaers: {
+        headers: {
           authorization: 'Bearer 97c4e39c-63ef-4122-882d-6ea6b1f0e49a'
         }
       }
