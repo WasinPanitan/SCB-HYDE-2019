@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
 import { get, map, pick } from 'lodash';
-import { Button, Input, Form } from 'antd';
+import { Button, Input, Form, Icon } from 'antd';
 import api from '../Services/api';
-import StepBars from '../Components/StepsBar';
-import CompareLoan from '../Components/CompareLoan';
+import HomeJumbo from '../images/home-jumbo.png';
 import './HomePage.css';
 
 
-function onChange(a, b, c) {
-  console.log(a, b, c);
-}
 
 class HomePage extends Component {
   constructor(props) {
@@ -29,28 +25,48 @@ class HomePage extends Component {
   );
 
   render () {
-    const rows = pick(this.state.data, [
-      'citizenID',
-      'thaiFirstName',
-      'thaiLastName',
-      'engFirstName',
-      'engLastName',
-      'birthDate',
-      'genderCode',
-      'mobile',
-      'email',
-    ]);
-    const formItemLayout = {
-      labelCol: { span: 6 },
-      wrapperCol: { span: 18 },
-      labelAlign: 'left',
-    };
     return (
       <div>
-        <h1>HOME</h1>
-        <h1><a href='/loan-compare'>loan_compare</a></h1>
-        <h1><a href='/loan-search'>loan_search</a></h1>
-        <h1><a href='/profile'>profile</a></h1>
+        <div style={{ display: 'flex', justifyContent: 'center', height: '370px', maxWidth: '100%', maxHeight: '100%', backgroundImage: `url("${HomeJumbo}")` }}>
+          <a className="begin-button" href="/loan-search"><button className="begin-button">ค้นหาสินเชื่อที่เหมาะกับคุณ</button></a>
+        </div>
+        <div className="home-page-bottom-section">
+          <div className="bottom-section-box">
+            <div className="section-box-top">
+              <Icon className="section-icon" type="edit" />
+            </div>
+            <div className="section-box-bottom">
+              <h3>1. กรอกข้อมูล</h3>
+            </div>
+          </div>
+          <div className="bottom-section-box">
+            <Icon className="arrow-right" type="arrow-right" />
+          </div>
+          <div className="bottom-section-box">
+            <div className="section-box-top">
+                <Icon className="section-icon" type="bar-chart" />
+            </div>
+            <div className="section-box-bottom">
+              <h3>2. เปรียบเทียบสินเชื่อที่คุณสามารถกู้ได้</h3>
+            </div>
+          </div>
+          <div className="bottom-section-box">
+            <Icon className="arrow-right" type="arrow-right" />
+          </div>
+          <div className="bottom-section-box">
+            <div className="section-box-top">
+                <Icon className="section-icon" type="file-done" />
+            </div>
+            <div className="section-box-bottom">
+              <h3>3. ส่งคำขอสินเชื่อ</h3>
+            </div>
+          </div>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'space-around'  }}>
+          <h1><a href='/loan-compare'> loan_compare </a></h1>
+          <h1><a href='/loan-search'> loan_search </a></h1>
+          <h1><a href='/profile'> profile </a></h1>
+        </div>
       </div>
     );
   }
