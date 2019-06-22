@@ -109,11 +109,11 @@ class LoanSearchPage extends React.Component {
           <React.Fragment>
             <div>
               <h1>ท่านต้องการเงินเร่งด่วนหรือไม่</h1>
-              <div><button className="next-button" onClick={this.handleSubmit}>YES</button></div>
-              <div><button className="next-button" onClick={this.handleSubmit}>NO</button></div>
+              <div><button className="next-button" onClick={this.handleSubmit}>ใช่</button></div>
+              <div><button className="next-button" onClick={this.handleSubmit}>ไม่</button></div>
             </div>
             <div>
-              <button className="next-button" onClick={() => this.setState({ steps: 1 })}>ย้อนกลับ</button>
+              <button className="back-button" onClick={() => this.setState({ steps: 1 })}>ย้อนกลับ</button>
             </div>
           </React.Fragment>
         )}
