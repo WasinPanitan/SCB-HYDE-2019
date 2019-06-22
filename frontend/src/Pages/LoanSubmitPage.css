@@ -11,3 +11,16 @@
   margin: 30px auto;
   max-width: 80%;
 }
+
+.loan-submit-subform {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #c2c5cc;
+  border-radius: 10px;
+}
+
+.loan-submit-body .title {
+  display: flex;
+  text-align: left;
+  text-decoration: underline;
+}
