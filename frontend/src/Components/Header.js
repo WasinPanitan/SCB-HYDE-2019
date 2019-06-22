@@ -1,6 +1,7 @@
 import React from 'react';
 import { Form, Button, Modal } from 'antd';
 import { Link } from 'react-router-dom';
+import { isNull } from 'lodash';
 import api from '../Services/api';
 import LoginForm from './LoginForm';
 
@@ -15,6 +16,8 @@ class HeaderComponent extends React.Component {
 
   componentDidMount() {
     console.log('mount');
+    if(!isNull(localStorage.getItem('bearerToken')))
+      this.setState({ bearerToken: localStorage.getItem('bearerToken')})
     // To disabled submit button at the beginning.
   }
 

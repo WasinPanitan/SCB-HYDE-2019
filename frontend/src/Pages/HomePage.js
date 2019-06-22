@@ -4,6 +4,7 @@ import { get, map, pick } from 'lodash';
 import { Button, Input, Form, Icon } from 'antd';
 import api from '../Services/api';
 import HomeJumbo from '../images/home-jumbo.png';
+import HYDElogo from '../images/hyde-logo.png';
 import './HomePage.css';
 
 
@@ -29,7 +30,10 @@ class HomePage extends Component {
     return (
       <div>
         <div style={{ display: 'flex', justifyContent: 'center', height: '370px', maxWidth: '100%', maxHeight: '100%', backgroundImage: `url("${HomeJumbo}")` }}>
-          <Link to="/loan-search" className="begin-button"><button className="begin-button">ค้นหาสินเชื่อที่เหมาะกับคุณ</button></Link>
+          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
+            <img src={HYDElogo} alt="logo" style={{ marginBottom: '20px' }} />
+            <Link to="/loan-search" className="begin-button"><button className="begin-button">ค้นหาสินเชื่อที่เหมาะกับคุณ</button></Link>
+          </div>
         </div>
         <div className="home-page-bottom-section">
           <div className="bottom-section-box">
