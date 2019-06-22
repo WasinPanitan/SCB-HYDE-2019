@@ -75,12 +75,12 @@ const fetchCalculateLoan = async (header, data) => {
       {
         method: 'POST',
         headers: getHeaders(header),
-        body: {
+        data: {
           loan: {
             productIntent: 'GENERAL',
             totalRequestAmount,
-            paymentFrequency: 'Monthly',
             installmentAmount,
+            paymentFrequency: 'Monthly',
             gracePeriod: 0,
             dueDay: 25,
           }

@@ -55,9 +55,33 @@ const fetchLoan = async (header) => {
   }
 }
 
+const fetchCalculateLoan = async (data) => {
+  const { totalRequestAmount, installmentAmount } = data;
+  try {
+    const response = await axios(
+      'http://localhost:6009/api/user/calculate-loan',
+      {
+        method: 'POST',
+        headers: {
+          authorization: getBearerToken(),
+        },
+        data: {
+          totalRequestAmount,
+          installmentAmount,
+        }
+      }
+    );
+    console.log(response.data);
+    return response.data;
+  } catch (err) {
+    return '';
+  }
+}
+
 export default {
   fetchProfile,
   fetchAccessToken,
   fetchLoan,
+  fetchCalculateLoan,
   getBearerToken,
 };
