@@ -1,5 +1,10 @@
 import axios from 'axios';
 
+const getBearerToken = () => {
+  const token = localStorage.getItem('bearerToken');
+  return (token) ? `Bearer ${token}` : null;
+}
+
 const fetchAccessToken = async () => {
   const response = await axios(
     'http://localhost:6009/api/user/token',
@@ -18,7 +23,7 @@ const fetchProfile = async (header) => {
     {
       method: 'GET',
       headers: {
-        authorization: 'Bearer 97c4e39c-63ef-4122-882d-6ea6b1f0e49a',
+        authorization: getBearerToken(),
       }
     }
   );
@@ -38,7 +43,7 @@ const fetchLoan = async (header) => {
       {
         method: 'GET',
         headers: {
-          authorization: 'Bearer 97c4e39c-63ef-4122-882d-6ea6b1f0e49a'
+          authorization: getBearerToken(),
         }
       }
     );
@@ -54,4 +59,5 @@ export default {
   fetchProfile,
   fetchAccessToken,
   fetchLoan,
+  getBearerToken,
 };
