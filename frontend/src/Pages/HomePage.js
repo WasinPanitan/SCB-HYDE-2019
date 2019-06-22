@@ -51,7 +51,6 @@ class HomePage extends Component {
         <h1><a href='/loan-compare'>loan_compare</a></h1>
         <h1><a href='/loan-search'>loan_search</a></h1>
         <h1><a href='/profile'>profile</a></h1>
-        <Button onClick={api.fetchLoan} primary>Fetch Loan</Button>
       </div>
     );
   }

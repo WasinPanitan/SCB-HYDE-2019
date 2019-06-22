@@ -34,3 +34,13 @@
 * {
   font-family: 'Kanit', sans-serif !important;
 }
+
+.next-button {
+  width: 180px;
+  height: 40px;
+  margin: 5px;
+  font-size: 18px;
+  border-radius: 50px;
+  background-color: #4e2B82;
+  color: goldenrod;
+}

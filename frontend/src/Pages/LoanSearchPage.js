@@ -117,9 +117,6 @@ class LoanSearchPage extends React.Component {
             </div>
           </React.Fragment>
         )}
-        <div>
-          <Button onClick={api.fetchLoan} primary>Fetch Loan</Button>
-        </div>
       </div>
     );
   }
