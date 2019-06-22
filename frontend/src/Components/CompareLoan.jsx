@@ -8,33 +8,36 @@ const CompareLoan = (props) => {
   const mockData = [
     {
       onClick,
-      title: 'Plan 1',
+      title: 'Speedy Loan',
       amount: 100000,
       tenor: 24,
       installment: 5000,
       interestRate: 18,
       min: 10000,
       max: 100000,
+      imageUrl: 'https://www.scb.co.th/content/dam/scb/personal-banking/loans/personal-loans/images/speedy-loan-banner-web.jpg'
     },
     {
       onClick,
-      title: 'Plan 2',
+      title: 'Super Loan',
       amount: 150000,
       tenor: 22,
       installment: 10000,
       interestRate: 15,
       min: 15000,
       max: 150000,
+      imageUrl: 'https://www.scb.co.th/content/dam/scb/personal-banking/loans/car-loans/images/mcmc-web-banner.jpg'
     },
     {
       onClick,
-      title: 'Plan 3',
+      title: 'Special Loan',
       amount: 200000,
       tenor: 20,
       installment: 12000,
       interestRate: 12,
       min: 12000,
       max: 120000,
+      imageUrl: 'https://www.scb.co.th/content/dam/scb/personal-banking/loans/personal-loans/images/your-loan-1440x480px.jpg'
     }
   ];
 

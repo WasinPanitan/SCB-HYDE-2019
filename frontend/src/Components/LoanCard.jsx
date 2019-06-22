@@ -1,28 +1,32 @@
 import React from 'react';
-import { Card, Icon } from 'antd';
+import { format } from 'currency-formatter';
+import { Card } from 'antd';
 import { get } from 'lodash';
 import './LoanCard.css';
 
+const formatter = (text) => (!text) ? '' : format(text, { code: 'TH', precision: 0 })
+
 const LoanCard = (props) => (
-  <Card title={props.title} onClick={get(props, 'onClick', () => {})}>
-    <div><Icon className="LoadCardIcon" type={get(props, 'icon', 'dollar')} theme="twoTone" twoToneColor="#4e2B82" /></div>
-     <div className="LoanCardDescription">
-        <div>amount: {get(props, 'amount', '')}</div>
-        <div>Tenor: {get(props, 'tenor', '')}</div>
-        <div>installment: {get(props, 'installment', '')}</div>
-        <div>interestRate: {get(props, 'interest', '')}</div>
-        <div>min: {get(props, 'min', '')}</div>
-        <div>max: {get(props, 'max', '')}</div>
-    </div>
+  <Card
+    style={{ width: 280 }}
+    hoverable
+    cover={<img className="LoanCardImage" alt="example" src={props.imageUrl} width="250" height="130" />}
+    onClick={get(props, 'onClick', () => {})}
+  >
+    <Card.Meta
+      title={props.title}
+      description={
+        <div className="LoanCardDescription">
+          <div>ยอดกู้: {formatter(get(props, 'amount', ''))}</div>
+          <div>ระยะเวลาผ่อน: {get(props, 'tenor', '')} เดือน</div>
+          <div>ยอดผ่อน: {formatter(get(props, 'installment', ''))} บาท</div>
+          <div>อัตราดอกเบี้ย: %{get(props, 'interestRate', '')}</div>
+          <div>ยอดกู้ต่ำสุด: {formatter(get(props, 'min', ''))}</div>
+          <div>ยอดกู้สูงสุด: {formatter(get(props, 'max', ''))}</div>
+        </div>
+      }
+    />
   </Card>
-  // <div className="LoanCard" key={props.key} onClick={get(props, 'onClick', () => {})}>
-  //   <h3>{get(props, 'title', '')}</h3>
-  //   <div><Icon className="LoadCardIcon" type={get(props, 'icon', 'dollar')} theme="twoTone" twoToneColor="#4e2B82" /></div>
-  //   <div className="LoanCardDescription">
-  //     <div>min: {get(props, 'min', '')}</div>
-  //     <div>max: {get(props, 'max', '')}</div>
-  //   </div>
-  // </div>
 );
 
 export default LoanCard;

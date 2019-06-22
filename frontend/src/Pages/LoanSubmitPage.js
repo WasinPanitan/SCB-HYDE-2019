@@ -1,12 +1,14 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { withRouter } from 'react-router';
-import { Form, Input, Icon, Select, Row, Col, Modal } from 'antd';
+import { Form, Input, Icon, Select, Modal } from 'antd';
 import { get, pick } from 'lodash';
 import api from '../Services/api';
 import StepBars from '../Components/StepsBar';
 import './LoanSubmitPage.css';
 
 const { Option } = Select;
+
+const { confirm } = Modal;
 
 const formItemLayout = {
   labelCol: { offset: 1, span: 10 },
@@ -39,7 +41,12 @@ class LoanSubmitPage extends React.Component {
     </Form.Item>
   );
 
-  handleNextStep = () => this.props.history.push('/loan-summary');
+  handleNextStep = () => {
+    confirm({
+      title: 'ท่านได้อ่านเงื่อนไขและยินยอมให้ธนาคารใช้ข้อมูลของท่าน',
+      onOk: () => this.props.history.push('/loan-summary'),
+    });
+  };
 
   handleBackStep = () => this.props.history.push('/loan-compare');
 
@@ -152,7 +159,7 @@ class LoanSubmitPage extends React.Component {
 
   render(){
     return(
-      <div className="LoanSubmitPage">
+      <div className="loanSubmitPage">
         <div className="steps-bar">
           <StepBars current={3} />
         </div>

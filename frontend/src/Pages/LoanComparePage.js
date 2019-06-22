@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { withRouter } from 'react-router'
 import CompareLoan from '../Components/CompareLoan';
 import StepBars from '../Components/StepsBar';
@@ -9,10 +9,11 @@ class LoanComparePage extends React.Component {
 
   render() {
     return(
-      <div className="loanComparePage">
-        <h1>เปรียบเทียบสินเชื่อที่คุณต้องการ</h1>
-        <div className="steps-bar">
-          <StepBars current={1} />
+      <Fragment>
+        <div className="loanComparePage">
+          <div className="steps-bar">
+            <StepBars current={1} />
+          </div>
         </div>
         <CompareLoan onClick={this.handleOnClickLoan} />
         <div className="loan-compare-body">
@@ -23,7 +24,7 @@ class LoanComparePage extends React.Component {
             ย้อนกลับ
           </button>
         </div>
-      </div>
+      </Fragment>
     )
   }
 };
