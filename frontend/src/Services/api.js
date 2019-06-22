@@ -8,7 +8,8 @@ const fetchAccessToken = async () => {
     }
   );
   console.log('bearerToken', response.data);
-  localStorage.setItem('bearerToken', response.data);
+  localStorage.setItem('bearerToken', response.data.data.accessToken);
+  return response;
 }
 
 const fetchProfile = async (header) => {

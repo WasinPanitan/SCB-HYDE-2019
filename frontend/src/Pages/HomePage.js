@@ -4,6 +4,10 @@ import { Button, Input, Form } from 'antd';
 import api from '../Services/api';
 import './HomePage.css';
 
+function onChange(a, b, c) {
+  console.log(a, b, c);
+}
+
 class HomePage extends Component {
   constructor(props) {
     super(props);
