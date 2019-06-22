@@ -47,7 +47,7 @@ class LoanSearchPage extends React.Component {
           <StepBars current={0} />
         </div>
         {this.state.steps == 1 ? (
-          <React.Fragment>
+          <div className="loan-search-body">
             <h1>
               กรุณากรอกข้อมูลเพื่อค้นหาสินเชื่อสำหรับคุณ
             </h1>
@@ -103,8 +103,8 @@ class LoanSearchPage extends React.Component {
                 />
               </Form.Item>
             </Form>
-            <button className="next-button" onClick={this.handleSubmit}>Next</button>
-          </React.Fragment>
+            <button className="next-button" onClick={this.handleSubmit}>ถัดไป</button>
+          </div>
         ) : (
           <React.Fragment>
             <div>

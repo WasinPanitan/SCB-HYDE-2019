@@ -4,6 +4,7 @@ import Header from './Components/Header';
 import HomePage from './Pages/HomePage';
 import ProfilePage from './Pages/ProfilePage';
 import LoanSearchPage from './Pages/LoanSearchPage';
+import LoanComparePage from './Pages/LoanComparePage';
 
 const AppRouter = props => (
   <BrowserRouter>
@@ -12,6 +13,7 @@ const AppRouter = props => (
       <Route exact path='/' component={HomePage}></Route>
       <Route exact path='/profile' component={ProfilePage}></Route>
       <Route exact path='/loan-search' component={LoanSearchPage}></Route>
+      <Route exact path='/loan-compare' component={LoanComparePage}></Route>
     </Switch>
   </BrowserRouter>
 );

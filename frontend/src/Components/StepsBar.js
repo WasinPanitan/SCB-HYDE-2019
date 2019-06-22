@@ -13,9 +13,9 @@ class StepsBar extends React.Component {
     return (
       <div style={{ textAlign: 'start'}}>
         <Steps progressDot current={this.props.current}>
-          <Step title="กรอกข้อมูล">1</Step>
-          <Step title="เปรียบเทียบสินเชื่อที่คุณต้องการ">2</Step>
-          <Step title="ส่งคำขอสินเชื่อ">3</Step>
+          <Step title="1. กรอกข้อมูล">1</Step>
+          <Step title="2. เปรียบเทียบสินเชื่อที่คุณต้องการ">2</Step>
+          <Step title="3. ส่งคำขอสินเชื่อ">3</Step>
         </Steps>
       </div>
     )

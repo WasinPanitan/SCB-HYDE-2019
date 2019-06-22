@@ -7,11 +7,15 @@
   margin: 40px;
 }
 
+.loan-search-body {
+  margin: 30px 200px;
+}
+
 .next-button {
   width: 200px;
   height: 50px;
-  font-size: 20px;
+  font-size: 26px;
   border-radius: 50px;
-  background-color: purple;
+  background-color: #4e2B82;
   color: goldenrod;
 }

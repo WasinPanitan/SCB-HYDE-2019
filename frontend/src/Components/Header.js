@@ -45,7 +45,7 @@ class HeaderComponent extends React.Component {
 
     return (
       <div className="Header">
-        <img className="scb-logo" src={SCBLogo} />
+        <a href='/'><img className="scb-logo" src={SCBLogo} /></a>
         <React.Fragment>
           {this.state.bearerToken ? (
             <div className="login-button-span">

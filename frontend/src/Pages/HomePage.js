@@ -48,10 +48,9 @@ class HomePage extends Component {
     return (
       <div>
         <h1>HOME</h1>
-        <div className="steps-bar">
-          <StepBars current={1} />
-          <CompareLoan />
-        </div>
+        <h1><a href='/loan-compare'>loan_compare</a></h1>
+        <h1><a href='/loan-search'>loan_search</a></h1>
+        <h1><a href='/profile'>profile</a></h1>
         <Button onClick={api.fetchLoan} primary>Fetch Loan</Button>
       </div>
     );
