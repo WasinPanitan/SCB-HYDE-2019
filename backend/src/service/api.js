@@ -118,6 +118,7 @@ const createLoan = async (header, data) => {
 
 const fetchLoan = async (header, applicationId) => {
   try {
+    console.log(`fetchLoan ${applicationId}`);
     const response = await axios(
       `https://api.partners.scb/partners/sandbox/v1/loanorigination/applications/${applicationId}`,
       {
@@ -128,7 +129,7 @@ const fetchLoan = async (header, applicationId) => {
         },
       }
     );
-    console.log(`fetchLoan ${applicationId}`, response.data);
+    
     return response.data;
   } catch (err) {
     console.log(err);

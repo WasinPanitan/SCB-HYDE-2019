@@ -8,7 +8,7 @@ function onChange(a, b, c) {
   console.log(a, b, c);
 }
 
-class HomePage extends Component {
+class ProfilePage extends Component {
   constructor(props) {
     super(props);
     this.state = { data: {} };
@@ -54,4 +54,4 @@ class HomePage extends Component {
   }
 }
 
-export default HomePage;
+export default ProfilePage;

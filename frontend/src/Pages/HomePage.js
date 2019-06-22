@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { get, map, pick } from 'lodash';
 import { Button, Input, Form } from 'antd';
 import api from '../Services/api';
+import StepBars from '../Components/StepsBar';
 import './HomePage.css';
+
 
 function onChange(a, b, c) {
   console.log(a, b, c);
@@ -43,12 +45,11 @@ class HomePage extends Component {
       labelAlign: 'left',
     };
     return (
-      <div className="App">
-        <h1>Profile</h1>
-        <Form {...formItemLayout} onClick={() => {}}>
-          {map(rows, (value, key) => this.renderFormItem(key, value))}
-          <Button type="primary" htmlType="submit">Submit</Button>
-        </Form>
+      <div>
+        <h1>HOME</h1>
+        <div className="steps-bar">
+          <StepBars current={1} />
+        </div>
         <Button onClick={api.fetchLoan} primary>Fetch Loan</Button>
       </div>
     );

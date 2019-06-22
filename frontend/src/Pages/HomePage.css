@@ -16,3 +16,7 @@
   border-radius: 10px;
   border: 1px solid lightgray !important;
 }
+
+.steps-bar {
+  margin: 40px;
+}
