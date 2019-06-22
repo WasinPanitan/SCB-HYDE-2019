@@ -1,5 +1,5 @@
 .loanSearchPage {
-  margin: 0 200px;
+  margin: 0 20%;
   text-align: center;
 }
 
@@ -8,5 +8,6 @@
 }
 
 .loan-search-body {
-  margin: 30px 200px;
+  margin: 30px auto;
+  max-width: 80%;
 }

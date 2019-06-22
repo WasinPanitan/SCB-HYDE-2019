@@ -46,7 +46,7 @@ class LoanSearchPage extends React.Component {
         <div className="steps-bar">
           <StepBars current={0} />
         </div>
-        {this.state.steps == 1 ? (
+        {this.state.steps === 1 ? (
           <div className="loan-search-body">
             <h1>
               กรุณากรอกข้อมูลเพื่อค้นหาสินเชื่อสำหรับคุณ
