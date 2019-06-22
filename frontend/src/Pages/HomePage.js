@@ -3,6 +3,7 @@ import { get, map, pick } from 'lodash';
 import { Button, Input, Form } from 'antd';
 import api from '../Services/api';
 import StepBars from '../Components/StepsBar';
+import CompareLoan from '../Components/CompareLoan';
 import './HomePage.css';
 
 
@@ -49,6 +50,7 @@ class HomePage extends Component {
         <h1>HOME</h1>
         <div className="steps-bar">
           <StepBars current={1} />
+          <CompareLoan />
         </div>
         <Button onClick={api.fetchLoan} primary>Fetch Loan</Button>
       </div>
