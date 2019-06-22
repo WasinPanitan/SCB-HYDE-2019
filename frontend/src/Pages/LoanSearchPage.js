@@ -54,10 +54,11 @@ class LoanSearchPage extends React.Component {
             <Form {...formItemLayout} onSubmit={this.handleSubmit} className="login-form">
               <Form.Item label="วงเงินที่คุณต้องการ">
                 <Input
-                  prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                  prefix={<Icon type="dollar" style={{ color: 'rgba(0,0,0,.25)' }} />}
                   onChange={(e) => this.setState({ loanAmount: e.target.value })}
                   defaultValue={this.state.loanAmount}
                   type="number"
+                  addonAfter=" บาท"
                   placeholder="จำนวนเงินที่ท่านต้องการขอสินเชื่อ"
                 />
               </Form.Item>
@@ -73,43 +74,46 @@ class LoanSearchPage extends React.Component {
               </Form.Item>
               <Form.Item label="รายได้ต่อเดือน">
                 <Input
-                  prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                  prefix={<Icon type="dollar" style={{ color: 'rgba(0,0,0,.25)' }} />}
                   onChange={(e) => this.setState({ salary: e.target.value })}
                   value={this.state.salary}
                   type="number"
+                  addonAfter=" บาท"
                   placeholder="รายได้ต่อเดือนของท่าน"
                 />
               </Form.Item>
               <Form.Item label="จำนวนเงินที่ท่านยินดีผ่อนชำระต่อเดือน" >
                 <Input
-                  prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                  prefix={<Icon type="dollar" style={{ color: 'rgba(0,0,0,.25)' }} />}
                   onChange={(e) => this.setState({ installment: e.target.value })}
                   value={this.state.installment}
                   type="number"
+                  addonAfter=" บาท / เดือน"
                   placeholder="จำนวนเงินผ่อนต่อเดือน"
                 />
               </Form.Item>
-              <Form.Item label="ดอกเบี้ย">
+              <Form.Item label="อัตราดอกเบี้ย">
                 <Input
-                  prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                  prefix={<Icon type="dollar" style={{ color: 'rgba(0,0,0,.25)' }} />}
                   onChange={(e) => this.setState({ interest: e.target.value })}
                   value={this.state.interest}
                   type="number"
                   placeholder="ดอกเบี้ยที่ท่านต้องการ"
+                  addonAfter=" % ต่อปี"
                 />
               </Form.Item>
             </Form>
-            <Button onClick={this.handleSubmit} primary>Next</Button>
+            <button className="next-button" onClick={this.handleSubmit}>Next</button>
           </React.Fragment>
         ) : (
           <React.Fragment>
             <div>
               <h1>ท่านต้องการเงินเร่งด่วนหรือไม่</h1>
-              <div><Button onClick={this.handleSubmit}>Yes</Button></div>
-              <div><Button>No</Button></div>
+              <div><button className="next-button" onClick={this.handleSubmit}>YES</button></div>
+              <div><button className="next-button" onClick={this.handleSubmit}>NO</button></div>
             </div>
             <div>
-              <Button onClick={() => this.setState({ steps: 1 })}>ย้อนกลับ</Button>
+              <button className="next-button" onClick={() => this.setState({ steps: 1 })}>ย้อนกลับ</button>
             </div>
           </React.Fragment>
         )}

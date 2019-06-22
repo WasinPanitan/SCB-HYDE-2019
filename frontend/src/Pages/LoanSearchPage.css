@@ -6,3 +6,12 @@
 .steps-bar {
   margin: 40px;
 }
+
+.next-button {
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+  border-radius: 50px;
+  background-color: purple;
+  color: goldenrod;
+}

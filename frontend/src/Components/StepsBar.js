@@ -11,8 +11,8 @@ class StepsBar extends React.Component {
   render(){
     console.log('this.props. step', this.props.current);
     return (
-      <div>
-        <Steps current={this.props.current}>
+      <div style={{ textAlign: 'start'}}>
+        <Steps progressDot current={this.props.current}>
           <Step title="กรอกข้อมูล">1</Step>
           <Step title="เปรียบเทียบสินเชื่อที่คุณต้องการ">2</Step>
           <Step title="ส่งคำขอสินเชื่อ">3</Step>
