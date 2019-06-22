@@ -31,8 +31,9 @@ class HomePage extends Component {
       <div>
         <div style={{ display: 'flex', justifyContent: 'center', height: '370px', maxWidth: '100%', maxHeight: '100%', backgroundImage: `url("${HomeJumbo}")` }}>
           <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'center' }}>
-            <div style={{ color: 'white', fontSize: '70px', marginBottom: '20px' }}>SNAP LOAN!</div>
-            <img src={HYDElogo} alt="logo" style={{ marginBottom: '30px', height: '80px', width: '80px' }} />
+            <img src={HYDElogo} alt="logo" style={{ height: '150px', width: '150px' }} />
+            <div style={{ color: 'white', fontSize: '70px', marginTop: '-20px', marginBottom: '-20px', fontFamily: 'Arial rounded MT bold' }}>SNAP LOAN!</div>
+            <div style={{ marginBottom: '40px', fontSize: '14px', color: 'white' }}>ช่วยคุณหาสินเชื่อที่เหมาะกับคุณ</div>
             <div>
               <Link to="/loan-search" className="begin-button"><button className="begin-button">ค้นหาสินเชื่อที่เหมาะกับคุณ</button></Link>
             </div>

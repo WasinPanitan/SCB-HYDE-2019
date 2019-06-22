@@ -6,6 +6,7 @@ import api from '../Services/api';
 import LoginForm from './LoginForm';
 
 import SCBLogo from '../images/scb-logo.jpg';
+import AvatarImage from '../images/avatar.png';
 import './Header.css';
 
 class HeaderComponent extends React.Component {
@@ -57,7 +58,7 @@ class HeaderComponent extends React.Component {
         <React.Fragment>
           {this.state.bearerToken ? (
             <div className="login-button-span">
-              <Avatar size="30" style={{ backgroundColor: 'green' }}>HYDE</Avatar>
+              <img className="avatar" src={AvatarImage} alt="avatar"/>
               <Button className="login-button" onClick={this.onLogout}>
                 Logout
               </Button>
