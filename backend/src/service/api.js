@@ -25,7 +25,7 @@ const getHeaders = (header = {}) => (
   {
     'content-type': 'application/json',
     'accept-language': 'EN',
-    resourceOwnerId: '26f466d7-5149-4f59-bf99-cfe7d29c90bd',
+    resourceOwnerId: '29b8d0c0-4b8b-4641-8b65-dd6b354daa26',
     requestUId: '99100361-23d2-433d-8c21-4b6469918713',
     ...(isNil(header.authorization) ? {} : { authorization: header.authorization }),
   }
@@ -122,7 +122,10 @@ const fetchLoan = async (header, applicationId) => {
       `https://api.partners.scb/partners/sandbox/v1/loanorigination/applications/${applicationId}`,
       {
         method: 'GET',
-        headers: getHeaders(header),
+        headers: {
+          ...getHeaders(header),
+          Authorization: header.authorization,
+        },
       }
     );
     console.log(`fetchLoan ${applicationId}`, response.data);
