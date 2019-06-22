@@ -1,9 +1,7 @@
 import React from 'react';
-import { Button, Form, Input, Icon, Select } from 'antd';
-import { map, pick } from 'lodash';
+import { withRouter } from 'react-router';
+import { Form, Input, Icon, Select } from 'antd';
 import StepBars from '../Components/StepsBar';
-import api from '../Services/api';
-
 import './LoanSearchPage.css';
 
 const { Option } = Select;
@@ -19,11 +17,11 @@ class LoanSearchPage extends React.Component {
     super(props);
     this.state = { 
       steps: 1,
-      loanAmount: null,
+      loanAmount: 1000000,
       occupation: 'Labour',
-      salary: null,
-      installment: null,
-      interest: null,
+      salary: 65000,
+      installment: 15000,
+      interest: 7,
     };
   }
 
@@ -37,21 +35,23 @@ class LoanSearchPage extends React.Component {
     });
   };
 
+  handleNextStep = () => this.props.history.push('/loan-compare');
+
   render(){
     const { getFieldDecorator } = this.props.form;
     console.log('this state', this.state);
     return(
       <div className="loanSearchPage">
-        <h1>LoanSearch</h1>
+        <h1>กรอกข้อมูล</h1>
         <div className="steps-bar">
           <StepBars current={0} />
         </div>
         {this.state.steps === 1 ? (
           <div className="loan-search-body">
             <h1>
-              กรุณากรอกข้อมูลเพื่อค้นหาสินเชื่อสำหรับคุณ
+              กรุณากรอกข้อมูลเพื่อค้นหาสินเชื่อสำหรับ
             </h1>
-            <Form {...formItemLayout} onSubmit={this.handleSubmit} className="login-form">
+            <Form {...formItemLayout} onSubmit={this.handleSubmit}>
               <Form.Item label="วงเงินที่คุณต้องการ">
                 <Input
                   prefix={<Icon type="dollar" style={{ color: 'rgba(0,0,0,.25)' }} />}
@@ -109,8 +109,8 @@ class LoanSearchPage extends React.Component {
           <React.Fragment>
             <div>
               <h1>ท่านต้องการเงินเร่งด่วนหรือไม่</h1>
-              <div><button className="next-button" onClick={this.handleSubmit}>ใช่</button></div>
-              <div><button className="next-button" onClick={this.handleSubmit}>ไม่</button></div>
+              <div><button className="next-button" onClick={this.handleNextStep}>ใช่</button></div>
+              <div><button className="next-button" onClick={this.handleNextStep}>ไม่</button></div>
             </div>
             <div>
               <button className="back-button" onClick={() => this.setState({ steps: 1 })}>ย้อนกลับ</button>
@@ -124,4 +124,4 @@ class LoanSearchPage extends React.Component {
 
 const WrappedLoanSearchPage = Form.create({ name: 'loan_search' })(LoanSearchPage);
 
-export default WrappedLoanSearchPage;
+export default withRouter(WrappedLoanSearchPage);
