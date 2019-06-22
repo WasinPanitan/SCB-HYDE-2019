@@ -31,13 +31,6 @@
   }
 }
 
-@font-face {
-  font-family: 'DB';
-  font-style: normal;
-  font-weight: 400;
-  src: url('./fonts/DB_AdmanRounded_X.ttf') format('truetype');
-}
-
 * {
-  font-family: 'DB', 'Kanit', sans-serif !important;
+  font-family: 'Kanit', sans-serif !important;
 }
