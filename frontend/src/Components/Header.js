@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Button, Modal } from 'antd';
+import { Avatar, Form, Button, Modal } from 'antd';
 import { Link } from 'react-router-dom';
 import { isNull } from 'lodash';
 import api from '../Services/api';
@@ -57,7 +57,7 @@ class HeaderComponent extends React.Component {
         <React.Fragment>
           {this.state.bearerToken ? (
             <div className="login-button-span">
-              <div>Token: {bearerToken.accessToken}</div>
+              <Avatar size="30" style={{ backgroundColor: 'green' }}>HYDE</Avatar>
               <Button className="login-button" onClick={this.onLogout}>
                 Logout
               </Button>

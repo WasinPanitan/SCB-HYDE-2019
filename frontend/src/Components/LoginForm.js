@@ -59,6 +59,11 @@ class NormalLoginForm extends React.Component {
               Log in
             </Button>
           </div>
+          <div>
+            <Button type="primary" style={{ width: '100%' }} htmlType="submit" className="login-form-button">
+              OAuths
+            </Button>
+          </div>
           Or <Link to="/">register now!</Link>
         </Form.Item>
       </Form>
