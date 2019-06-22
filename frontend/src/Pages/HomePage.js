@@ -49,6 +49,7 @@ class HomePage extends Component {
           {map(rows, (value, key) => this.renderFormItem(key, value))}
           <Button type="primary" htmlType="submit">Submit</Button>
         </Form>
+        <Button onClick={api.fetchLoan} primary>Fetch Loan</Button>
       </div>
     );
   }

@@ -11,6 +11,14 @@ const URL = {
   OAUTH_REFRESH_TOKEN: '',
   CS_PROFILE: 'https://api.partners.scb/partners/sandbox/v1/customers/profile',
   LOAN_CAL: 'https://api.partners.scb/partners/sandbox/v1/loanorigination/simulator/calculate',
+  CREATE_LOAN: 'https://api.partners.scb/partners/sandbox/v1/loanorigination/applications',
+  VIEW_LOAN: 'https://api.partners.scb/partners/sandbox/v1/loanorigination/applications/', // GET need ${ApplicationId}
+  EDIT_LOAN: 'https://api.partners.scb/partners/sandbox/v1/loanorigination/applications/', // PUT need ${loanApplicationId}
+  UPLOAD_DOCUMENT: 'https://api.partners.scb/partners/sandbox/v1/loanorigination/applications/{{appId}}/documents', // POST 
+  REVIEW_DOCUMENT: 'https://api.partners.scb/partners/sandbox/v1/loanorigination/applications/{{appId}}/documents', // GET applicationId
+  DELETE_DOCUMENT: 'https://api.partners.scb/partners/sandbox/v1/loanorigination/applications/{{appId}}/documents/{{docId}}', // DEL 
+  SUBMIT_LOAN: 'https://api.partners.scb/partners/sandbox/v1/loanorigination/applications/submit', // POST with BODY applicationId
+  CANCEL_LOAN: 'https://api.partners.scb/partners/sandbox/v1/loanorigination/applications/cancel', // POST with BODY applicationId
 };
 
 const getHeaders = (header = {}) => (
@@ -86,8 +94,49 @@ const fetchCalculateLoan = async (header, data) => {
   }
 };
 
+const createLoan = async (header, data) => {
+  try {
+    const { productIntent } = data;
+    const response = await axios(
+      URL.CREATE_LOAN,
+      {
+        method: 'POST',
+        headers: getHeaders(header),
+        body: {
+          loan: {
+            productIntent,
+          }
+        }
+      }
+    );
+    return response.data;
+  } catch (err) {
+    console.log(err);
+    return null;
+  }
+};
+
+const fetchLoan = async (header, applicationId) => {
+  try {
+    const response = await axios(
+      `https://api.partners.scb/partners/sandbox/v1/loanorigination/applications/${applicationId}`,
+      {
+        method: 'GET',
+        headers: getHeaders(header),
+      }
+    );
+    console.log(`fetchLoan ${applicationId}`, response.data);
+    return response.data;
+  } catch (err) {
+    console.log(err);
+    return null;
+  }
+};
+
 export default {
   fetchCalculateLoan,
   fetchToken,
   fetchProfile,
+  createLoan,
+  fetchLoan,
 };

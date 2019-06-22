@@ -15,4 +15,8 @@ router.post('/calculate-loan', async (req, res, next) => {
   res.send(await service.user.calculateLoan(req.headers, req.body));
 });
 
+router.get('/fetch-loan/:applicationId', async (req, res, next) => {
+  res.send(await service.loan.fetchLoan(req.headers, req.query.applicationId));
+});
+
 export default router;

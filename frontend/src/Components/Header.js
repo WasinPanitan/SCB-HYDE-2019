@@ -69,7 +69,7 @@ class HeaderComponent extends React.Component {
                 <LoginForm closeModal={this.handleCancel} setBearerToken={this.setBearerToken} />
               </Modal>
             </React.Fragment>
-          )}     
+          )}
         </React.Fragment>
       </div>
     );
