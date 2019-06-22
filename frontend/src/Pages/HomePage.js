@@ -30,9 +30,12 @@ class HomePage extends Component {
     return (
       <div>
         <div style={{ display: 'flex', justifyContent: 'center', height: '370px', maxWidth: '100%', maxHeight: '100%', backgroundImage: `url("${HomeJumbo}")` }}>
-          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
-            <img src={HYDElogo} alt="logo" style={{ marginBottom: '20px' }} />
-            <Link to="/loan-search" className="begin-button"><button className="begin-button">ค้นหาสินเชื่อที่เหมาะกับคุณ</button></Link>
+          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'center' }}>
+            <div style={{ color: 'white', fontSize: '70px', marginBottom: '20px' }}>SNAP LOAN!</div>
+            <img src={HYDElogo} alt="logo" style={{ marginBottom: '30px', height: '80px', width: '80px' }} />
+            <div>
+              <Link to="/loan-search" className="begin-button"><button className="begin-button">ค้นหาสินเชื่อที่เหมาะกับคุณ</button></Link>
+            </div>
           </div>
         </div>
         <div className="home-page-bottom-section">
