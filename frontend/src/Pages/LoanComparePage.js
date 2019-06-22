@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
-import { withRouter } from 'react-router'
+import { withRouter } from 'react-router';
+import { get, map } from 'lodash';
 import CompareLoan from '../Components/CompareLoan';
 import StepBars from '../Components/StepsBar';
 import api from '../Services/api';
@@ -12,9 +13,13 @@ class LoanComparePage extends React.Component {
   }
 
   async componentDidMount () {
-    this.setState({
-      data: await api.fetchCalculateLoan({ totalRequestAmount: 1000000, installmentAmount: 10000 }),
-    });
+    const data = await Promise.all([
+      api.fetchCalculateLoan({ totalRequestAmount: 1000000, installmentAmount: 25000 }),
+      api.fetchCalculateLoan({ totalRequestAmount: 1300000, installmentAmount: 50000 }),
+      api.fetchCalculateLoan({ totalRequestAmount: 1250000, installmentAmount: 40000 }),
+    ]);
+    const result = map(data, (value, key) => get(value, 'data.loan', {}));
+    this.setState({ data: result });
   }
 
   handleOnClickLoan = () => this.props.history.push('/loan-submit');
@@ -27,7 +32,7 @@ class LoanComparePage extends React.Component {
             <StepBars current={1} />
           </div>
         </div>
-        <CompareLoan onClick={this.handleOnClickLoan} />
+        <CompareLoan onClick={this.handleOnClickLoan} data={this.state.data} />
         <div className="loan-compare-body">
           <button
             className="back-button"

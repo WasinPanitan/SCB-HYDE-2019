@@ -83,8 +83,8 @@ const fetchCalculateLoan = async (header, data) => {
             paymentFrequency: 'Monthly',
             gracePeriod: 0,
             dueDay: 25,
-          }
-        }
+          },
+        },
       }
     );
     return response.data;

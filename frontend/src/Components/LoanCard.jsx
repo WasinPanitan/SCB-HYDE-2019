@@ -16,13 +16,16 @@ const LoanCard = (props) => (
     <Card.Meta
       title={props.title}
       description={
+        (!props.totalRequestAmount) ?
+        <div>...loading</div>
+        :
         <div className="LoanCardDescription">
-          <div>ยอดกู้: {formatter(get(props, 'amount', ''))}</div>
-          <div>ระยะเวลาผ่อน: {get(props, 'tenor', '')} เดือน</div>
-          <div>ยอดผ่อน: {formatter(get(props, 'installment', ''))} บาท</div>
+          <div>ยอดกู้: {formatter(get(props, 'totalRequestAmount', ''))}</div>
+          <div>ระยะเวลาผ่อน: {get(props, 'loanTenor', '')} เดือน</div>
+          <div>ยอดผ่อน: {formatter(get(props, 'installmentAmount', ''))} บาท</div>
           <div>อัตราดอกเบี้ย: %{get(props, 'interestRate', '')}</div>
-          <div>ยอดกู้ต่ำสุด: {formatter(get(props, 'min', ''))}</div>
-          <div>ยอดกู้สูงสุด: {formatter(get(props, 'max', ''))}</div>
+          <div>ยอดผ่อนขั้นต่ำ: {formatter(get(props, 'installment.minAmount', ''))}</div>
+          <div>ยอดผ่อนสูงสุด: {formatter(get(props, 'installment.maxAmount', ''))}</div>
         </div>
       }
     />
