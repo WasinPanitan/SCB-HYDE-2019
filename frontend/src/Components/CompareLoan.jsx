@@ -4,7 +4,7 @@ import LoanCard from './LoanCard';
 import './CompareLoan.css';
 
 const CompareLoan = (props) => {
-  const { onClick, data } = props;
+  const { onClick, data, title } = props;
   const cards = [
     {
       onClick,
@@ -27,7 +27,7 @@ const CompareLoan = (props) => {
   ];
   return (
     <div className="CompareLoan">
-    <h2>สินเชื่อสำหรับคุณ</h2>
+    <h2>{ title || 'สินเชื่อสำหรับคุณ' }</h2>
       <div className="CompareLoanContainer">
         {map(cards, (value, key) => <LoanCard key={key} {...value} />)}
       </div>
