@@ -4,10 +4,6 @@ import { Steps } from 'antd';
 const { Step } = Steps;
 
 class StepsBar extends React.Component {
-  constructor(props){
-    super(props);
-  }
-
   render(){
     console.log('this.props. step', this.props.current);
     return (

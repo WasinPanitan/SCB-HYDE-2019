@@ -3,8 +3,8 @@ import { map } from 'lodash';
 import LoanCard from './LoanCard';
 import './CompareLoan.css';
 
-const CompareLoan = () => {
-  const onClick = () => {};
+const CompareLoan = (props) => {
+  const { onClick } = props;
   const mockData = [
     {
       onClick,

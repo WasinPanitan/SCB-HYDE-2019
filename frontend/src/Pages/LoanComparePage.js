@@ -5,9 +5,7 @@ import StepBars from '../Components/StepsBar';
 import './LoanComparePage.css';
 
 class LoanComparePage extends React.Component {
-  constructor(props){
-    super(props);
-  };
+  handleOnClickLoan = () => this.props.history.push('/loan-submit');
 
   render() {
     return(
@@ -16,7 +14,7 @@ class LoanComparePage extends React.Component {
         <div className="steps-bar">
           <StepBars current={1} />
         </div>
-        <CompareLoan />
+        <CompareLoan onClick={this.handleOnClickLoan} />
         <div className="loan-compare-body">
           <button
             className="back-button"
