@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Button, Modal } from 'antd';
-import { isUndefined } from 'lodash';
+import { Link } from 'react-router-dom';
 import api from '../Services/api';
 import LoginForm from './LoginForm';
 
@@ -39,18 +39,23 @@ class HeaderComponent extends React.Component {
     this.setState({ bearerToken: value });
   }
 
+  onLogout = () => {
+    this.setState({ bearerToken: null });
+    localStorage.removeItem('bearerToken');
+  }
+
   render() {
     console.log(this.state);
     const { visible, loading, bearerToken } = this.state;
 
     return (
       <div className="Header">
-        <a href='/'><img className="scb-logo" src={SCBLogo} /></a>
+        <Link to='/'><img className="scb-logo" src={SCBLogo} /></Link>
         <React.Fragment>
           {this.state.bearerToken ? (
             <div className="login-button-span">
               <div>Token: {bearerToken.accessToken}</div>
-              <Button className="login-button" onClick={() => this.setBearerToken(null)}>
+              <Button className="login-button" onClick={this.onLogout}>
                 Logout
               </Button>
             </div>

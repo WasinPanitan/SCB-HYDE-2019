@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { get, map, pick } from 'lodash';
 import { Button, Input, Form, Icon } from 'antd';
 import api from '../Services/api';
@@ -28,7 +29,7 @@ class HomePage extends Component {
     return (
       <div>
         <div style={{ display: 'flex', justifyContent: 'center', height: '370px', maxWidth: '100%', maxHeight: '100%', backgroundImage: `url("${HomeJumbo}")` }}>
-          <a className="begin-button" href="/loan-search"><button className="begin-button">ค้นหาสินเชื่อที่เหมาะกับคุณ</button></a>
+          <Link to="/loan-search" className="begin-button"><button className="begin-button">ค้นหาสินเชื่อที่เหมาะกับคุณ</button></Link>
         </div>
         <div className="home-page-bottom-section">
           <div className="bottom-section-box">
@@ -63,9 +64,9 @@ class HomePage extends Component {
           </div>
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-around'  }}>
-          <h1><a href='/loan-compare'> loan_compare </a></h1>
-          <h1><a href='/loan-search'> loan_search </a></h1>
-          <h1><a href='/profile'> profile </a></h1>
+          <h1><Link to='/loan-compare'> loan_compare </Link></h1>
+          <h1><Link to='/loan-search'> loan_search </Link></h1>
+          <h1><Link to='/profile'> profile </Link></h1>
         </div>
       </div>
     );

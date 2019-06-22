@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Form, Icon, Input, Button, Checkbox, Modal } from 'antd';
 import api from '../Services/api';
 
@@ -50,15 +51,15 @@ class NormalLoginForm extends React.Component {
             valuePropName: 'checked',
             initialValue: true,
           })(<Checkbox>Remember me</Checkbox>)}
-          <a className="login-form-forgot" href="">
+          <Link className="login-form-forgot" href="/">
             Forgot password
-          </a>
+          </Link>
           <div>
             <Button type="primary" style={{ width: '100%' }} htmlType="submit" className="login-form-button">
               Log in
             </Button>
           </div>
-          Or <a href="">register now!</a>
+          Or <Link to="/">register now!</Link>
         </Form.Item>
       </Form>
     );

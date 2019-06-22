@@ -32,7 +32,6 @@ class LoanSubmitPage extends React.Component {
   render(){
     return(
       <div className="LoanSubmitPage">
-        <h1>กรอกข้อมูล</h1>
         <div className="steps-bar">
           <StepBars current={3} />
         </div>

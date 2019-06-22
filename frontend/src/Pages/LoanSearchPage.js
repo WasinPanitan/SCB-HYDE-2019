@@ -42,7 +42,6 @@ class LoanSearchPage extends React.Component {
     console.log('this state', this.state);
     return(
       <div className="loanSearchPage">
-        <h1>กรอกข้อมูล</h1>
         <div className="steps-bar">
           <StepBars current={0} />
         </div>
