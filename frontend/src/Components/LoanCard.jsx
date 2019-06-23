@@ -13,6 +13,7 @@ const LoanCard = (props) => (
     cover={<img className="LoanCardImage" alt="example" src={props.imageUrl} width="250" height="130" />}
     onClick={get(props, 'onClick', () => {})}
   >
+    {console.log('card props', props)}
     <Card.Meta
       title={props.title}
       description={

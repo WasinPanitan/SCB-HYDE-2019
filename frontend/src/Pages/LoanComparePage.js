@@ -13,10 +13,26 @@ class LoanComparePage extends React.Component {
   }
 
   async componentDidMount () {
+    const loanAmount = parseInt(localStorage.getItem('loanAmount'));
+    const assetCar = localStorage.getItem('assetCar');
+    let carValue = 50000;
+    switch(assetCar) {
+      case 'Toyota':
+        carValue = 70000;
+        break;
+      case 'Honda':
+        carValue = 50000;
+        break;
+      case 'Benz':
+        carValue = 100000;
+        break;
+      default:
+        carValue = 50000;
+    }
     const data = await Promise.all([
-      api.fetchCalculateLoan({ totalRequestAmount: 1000000, installmentAmount: 25000 }),
-      api.fetchCalculateLoan({ totalRequestAmount: 1300000, installmentAmount: 50000 }),
-      api.fetchCalculateLoan({ totalRequestAmount: 1250000, installmentAmount: 40000 }),
+      api.fetchCalculateLoan({ totalRequestAmount: loanAmount }),
+      api.fetchCalculateLoan({ totalRequestAmount: loanAmount }),
+      api.fetchCalculateLoan({ totalRequestAmount: (loanAmount + carValue) }),
     ]);
     const result = map(data, (value, key) => get(value, 'data.loan', {}));
     this.setState({ data: result });
@@ -32,6 +48,7 @@ class LoanComparePage extends React.Component {
             <StepBars current={1} />
           </div>
         </div>
+        {console.log('pass first', this.state.data)}
         <CompareLoan onClick={this.handleOnClickLoan} data={this.state.data} />
         <div className="loan-compare-body">
           <button

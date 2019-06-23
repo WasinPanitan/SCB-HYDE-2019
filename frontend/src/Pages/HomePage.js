@@ -71,11 +71,11 @@ class HomePage extends Component {
             </div>
           </div>
         </div>
-        <div style={{ display: 'flex', justifyContent: 'space-around'  }}>
+        {/* <div style={{ display: 'flex', justifyContent: 'space-around'  }}>
           <h1><Link to='/loan-compare'> loan_compare </Link></h1>
           <h1><Link to='/loan-search'> loan_search </Link></h1>
           <h1><Link to='/profile'> profile </Link></h1>
-        </div>
+        </div> */}
       </div>
     );
   }

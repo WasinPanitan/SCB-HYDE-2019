@@ -56,7 +56,7 @@ const fetchLoan = async (header) => {
 }
 
 const fetchCalculateLoan = async (data) => {
-  const { totalRequestAmount, installmentAmount } = data;
+  const { totalRequestAmount } = data;
   try {
     const response = await axios(
       'http://localhost:6009/api/user/calculate-loan',
@@ -67,7 +67,6 @@ const fetchCalculateLoan = async (data) => {
         },
         data: {
           totalRequestAmount,
-          installmentAmount,
         }
       }
     );

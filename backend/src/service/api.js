@@ -69,7 +69,7 @@ const fetchProfile = async (header) => {
 
 const fetchCalculateLoan = async (header, data) => {
   try {
-    const { totalRequestAmount, installmentAmount } = data;
+    const { totalRequestAmount } = data;
     const response = await axios(
       URL.LOAN_CAL,
       {
@@ -79,7 +79,6 @@ const fetchCalculateLoan = async (header, data) => {
           loan: {
             productIntent: 'GENERAL',
             totalRequestAmount,
-            installmentAmount,
             paymentFrequency: 'Monthly',
             gracePeriod: 0,
             dueDay: 25,

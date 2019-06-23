@@ -17,12 +17,21 @@ class LoanSearchPage extends React.Component {
     super(props);
     this.state = { 
       steps: 1,
-      loanAmount: 1000000,
+      loanAmount: 3000000,
       occupation: 'Labour',
       salary: 65000,
       installment: 15000,
+      assetCar: 'Toyota',
       interest: 7,
     };
+  }
+
+  componentDidMount(){
+    localStorage.setItem('loanAmount', 300000);
+    localStorage.setItem('occupation', 'Labour');
+    localStorage.setItem('salary', 65000);
+    localStorage.setItem('installment', 15000);
+    localStorage.setItem('assetCar', 'Toyota');
   }
 
   handleSubmit = e => {
@@ -38,7 +47,6 @@ class LoanSearchPage extends React.Component {
   handleNextStep = () => this.props.history.push('/loan-compare');
 
   render(){
-    const { getFieldDecorator } = this.props.form;
     console.log('this state', this.state);
     return(
       <div className="loanSearchPage">
@@ -54,7 +62,10 @@ class LoanSearchPage extends React.Component {
               <Form.Item label="วงเงินที่คุณต้องการ">
                 <Input
                   prefix={<Icon type="dollar" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                  onChange={(e) => this.setState({ loanAmount: e.target.value })}
+                  onChange={(e) => {
+                    this.setState({ loanAmount: e.target.value });
+                    localStorage.setItem('loanAmount', e.target.value);
+                  }}
                   defaultValue={this.state.loanAmount}
                   type="number"
                   addonAfter=" บาท"
@@ -64,7 +75,10 @@ class LoanSearchPage extends React.Component {
               <Form.Item label="อาชีพของท่าน">
                 <Select
                 placeholder="Select a option and change input text above"
-                onChange={(value) => this.setState({ occupation: value})}
+                onChange={(value) => {
+                  this.setState({ occupation: value});
+                  localStorage.setItem('occupation', value);
+                }}
                 value={this.state.occupation}
                 >
                   <Option value="Labour">พนักงานประจำ</Option>
@@ -74,7 +88,10 @@ class LoanSearchPage extends React.Component {
               <Form.Item label="รายได้ต่อเดือน">
                 <Input
                   prefix={<Icon type="dollar" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                  onChange={(e) => this.setState({ salary: e.target.value })}
+                  onChange={(e) => {
+                    this.setState({ salary: e.target.value })
+                    localStorage.setItem('loanAmount', e.target.value);
+                  }}
                   value={this.state.salary}
                   type="number"
                   addonAfter=" บาท"
@@ -84,22 +101,40 @@ class LoanSearchPage extends React.Component {
               <Form.Item label="จำนวนเงินที่ท่านยินดีผ่อนชำระต่อเดือน" >
                 <Input
                   prefix={<Icon type="dollar" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                  onChange={(e) => this.setState({ installment: e.target.value })}
+                  onChange={(e) => {
+                    this.setState({ installment: e.target.value })
+                    localStorage.setItem('installment', e.target.value);
+                  }}
                   value={this.state.installment}
                   type="number"
                   addonAfter=" บาท / เดือน"
                   placeholder="จำนวนเงินผ่อนต่อเดือน"
                 />
               </Form.Item>
-              <Form.Item label="อัตราดอกเบี้ย">
-                <Input
+              <Form.Item label="สินทรัพย์เพิ่มเติม">
+                {/* <Input
                   prefix={<Icon type="dollar" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                  onChange={(e) => this.setState({ interest: e.target.value })}
+                  onChange={(e) => {
+                    this.setState({ interest: e.target.value })
+                    localStorage.setItem('interest', e.target.value);
+                  }}
                   value={this.state.interest}
                   type="number"
                   placeholder="ดอกเบี้ยที่ท่านต้องการ"
                   addonAfter=" % ต่อปี"
-                />
+                /> */}
+                <Select
+                placeholder="Select a option and change input text above"
+                onChange={(value) => {
+                  this.setState({ assetCar: value});
+                  localStorage.setItem('assetCar', value);
+                }}
+                value={this.state.assetCar}
+                >
+                  <Option value="Toyota">Toyota ...</Option>
+                  <Option value="Honda">Honda ...</Option>
+                  <Option value="Benz">Benz ...</Option>
+                </Select>
               </Form.Item>
             </Form>
             <button className="next-button" onClick={this.handleSubmit}>ถัดไป</button>
