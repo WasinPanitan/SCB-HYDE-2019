@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { withRouter } from 'react-router';
 import { get, map } from 'lodash';
-import { Spin, Icon, Form, Input } from 'antd';
+import { Spin, Icon, Form, Divider } from 'antd';
 import CompareLoan from '../Components/CompareLoan';
 import api from '../Services/api';
 import './LoanSummaryPage.css';
@@ -63,7 +63,8 @@ class LoanSummaryPage extends React.Component {
             {this.renderFormItem('Score rating', '8.2/10')}
           </Form>
         </div>
-        <CompareLoan data={this.state.data} />
+        <Divider />
+        <CompareLoan title="สินเชื่อแนะนำ" data={this.state.data} />
         <div className="loan-summary-body">
           <button
             className="back-button"
